@@ -1,7 +1,5 @@
 <div align="center">
 
-<img src="https://cdn.discordapp.com/attachments/955362477137362954/996769449480826971/2022-07-13_16-25.png" width="350px">
-
 # `NiTch`
 
 <h3>
@@ -9,26 +7,17 @@
 </h3>
 <br>
 
-![Maintenance](https://shields.io/maintenance/yes/2022?style=for-the-badge)
-![License](https://shields.io/github/license/unxsh/nitch?style=for-the-badge)
-![Commits](https://shields.io/github/commit-activity/m/unxsh/nitch?style=for-the-badge)
-
-![GitHub Repo stars](https://img.shields.io/github/stars/unxsh/nitch?style=for-the-badge)
-![GitHub issues](https://img.shields.io/github/issues/unxsh/nitch?style=for-the-badge)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/unxsh/nitch?style=for-the-badge)
-
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/unxsh/nitch?style=for-the-badge)
+![Maintenance](https://shields.io/maintenance/yes/2025?style=for-the-badge)
+![Commits](https://img.shields.io/gitea/last-commit/pkgs/nitchrevived?gitea_url=https%3A%2F%2Fgit.teto.party&style=for-the-badge)
 
 </div>
 
 # Description 📖
 
-<img src="https://media.discordapp.net/attachments/955362477137362954/997839005460725841/2022-07-16_15-15_1.png" width="42%" align="right">
-
-`nitch` is a small and incredibly fast system fetch written fully in `nim👑` without any dependencies, on my pc
+`nitchrevived` is a small and incredibly fast system fetch written fully in `nim👑` without any dependencies, on my pc
 it executes in around 1.70 miliseconds.
 
-The source code of `nitch` is highly documented and I hope it will act as a learning resource for nim
+The source code of `nitchrevived` is highly documented and I hope it will act as a learning resource for nim
 and linux systems architecture
 
 If anything in the source code is unclear or is lacking in its explanation, open an issue. Sometimes you get too close to something and you fail to see the "bigger picture"!
@@ -42,12 +31,12 @@ why `nim👑`? because it's fast and simple
 
 # Installation ☁️
 ```fish
-wget https://raw.githubusercontent.com/unxsh/nitch/main/setup.sh && sh setup.sh
+paru -S nitchrevived
 ```
 
 # Usage 🪨
 ```
-nitch
+nitchrevived
 ```
 
 flags:
@@ -150,11 +139,11 @@ proc drawInfo*() =
 
 ### 1) clone repo
 ```fish
-git clone https://github.com/unxsh/nitch.git
+git clone https://git.teto.party/pkgs/nitchrevived
 ```
 ### 2) change dir to `nitch`
 ```fish
-cd nitch/
+cd nitchrevived/
 ```
 
 ### 3) build program with `nimble`
@@ -167,10 +156,10 @@ After that you will get a ready-made binary file in the root directory of the pr
 
 # File architecture 📁
 ```fish
-nitch
+nitchrevived
   ├── LICENSE
-  ├── nitch
-  ├── nitch.nimble
+  ├── nitchrevived
+  ├── nitchrevived.nimble
   ├── README.md
   ├── src
   │   ├── assets
@@ -215,3 +204,4 @@ nitch
 - [paleofetch](https://github.com/ss7m/paleofetch)
 - [rxfetch](https://github.com/Mangeshrex/rxfetch)
 - [nerdfetch](https://github.com/ThatOneCalculator/NerdFetch)
+- [nitch](https://github.com/ssleert/nitch)
