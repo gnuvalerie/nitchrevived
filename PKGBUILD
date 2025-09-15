@@ -1,6 +1,6 @@
 pkgname=nitchrevived
 pkgver=0.1.7
-_commit=1c6955c4632614797154487fdc0f983e60f20f06
+_commit=11a6cf559f90e631b08957892e9300253d6a2846
 pkgrel=3
 pkgdesc="Incredibly fast system fetch written in nim! Revived"
 arch=(x86_64)
