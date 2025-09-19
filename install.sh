@@ -36,14 +36,18 @@ if command -v pacman >/dev/null 2>&1; then
     if [ -f PKGBUILD ]; then
         makepkg -si --noconfirm
     else
+        cd src
         nimble build -y
         sudo install -Dm755 nitchrevived /usr/local/bin/nitchrevived
-        sudo install -Dm644 src/LICENSE /usr/local/share/licenses/nitchrevived/LICENSE
+        sudo install -Dm644 LICENSE /usr/local/share/licenses/nitchrevived/LICENSE
+        cd ..
     fi
 else
+    cd src
     nimble build -y
     sudo install -Dm755 nitchrevived /usr/local/bin/nitchrevived
-    sudo install -Dm644 src/LICENSE /usr/local/share/licenses/nitchrevived/LICENSE
+    sudo install -Dm644 LICENSE /usr/local/share/licenses/nitchrevived/LICENSE
+    cd ..
 fi
 
 echo "nitchrevived installation complete."
