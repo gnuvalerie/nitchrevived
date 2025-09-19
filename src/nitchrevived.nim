@@ -4,8 +4,8 @@ import
   funcs/perform # perform funcs for flags
 
 let
-  arg = argParser(commandLineParams(), paramCount()) # called argParser with args seq and amount of args
-
+  args = commandLineParams()
+  arg = argParser(args, paramCount())
 # case return of argParser
 case arg:
 
@@ -24,6 +24,9 @@ of 2:
 # if -v --version flags
 of 3:
   arg3() # cal arg2 func from perform
+
+of 4:
+  arg4(args[1])
 
 # nim xdd
 else:

@@ -4,11 +4,11 @@ import
 
 # if if no flag
 proc arg0*() =
-  drawInfo(true)
+  drawInfo(true, "")
 
 # if -a --no-ascii flags
 proc arg1*() =
-  drawInfo(false)
+  drawInfo(false, "")
 
 # if -h --help flags
 proc arg2*() =
@@ -17,3 +17,6 @@ proc arg2*() =
 # if -v --version flags
 proc arg3*() =
   stdout.write(programVersion) # write to stdout programVersion from nitch/assets/assets file
+
+proc arg4*(distro: string) =
+  drawInfo(true, distro)

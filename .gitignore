@@ -3,3 +3,4 @@ nitchrevived
 pkg/
 *.tar.zst
 venv
+~temp.txt

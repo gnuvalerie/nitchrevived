@@ -9,9 +9,9 @@ import
                   getPkgs, getRam, getLogo]  # import nitches to get info about user system
 
 # the main function for drawing fetch
-proc drawInfo*(asciiArt: bool) =
+proc drawInfo*(asciiArt: bool, distro: string) =
   let  # distro id (arch, manjaro, debian)
-    distroId = getDistroId()
+    distroId = if distro.len > 0: distro else: getDistroId()
 
   let  # logo and it color
     coloredLogo = getLogo(distroId)  # color + logo tuple
