@@ -1,6 +1,11 @@
 #!/bin/sh
 set -e
 
+if [ "$PREFIX" = "/data/data/com.termux/files/usr" ] || [ -d "/data/data/com.termux" ]; then
+    echo "Installer doesn't support Termux. Exiting."
+    exit 1
+fi
+
 install_packages() {
     pkgs="$*"
     if command -v pacman >/dev/null 2>&1; then
