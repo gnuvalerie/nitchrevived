@@ -5,7 +5,7 @@ author        = "sfome & tetoparty"
 description   = "System fetch in nim lang"
 license       = "MIT"
 
-srcDir        = "src"
+srcDir        = "."
 bin           = @["nitchrevived"]
 
 
