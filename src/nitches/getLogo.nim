@@ -22,7 +22,8 @@ const logoMap = {
   "void": (fgGreen, voidLogo),
   "cachy": (fgGreen, cachyLogo),
   "bedrock": (fgWhite, bedrockLogo),
-  "tide": (fgBlue, tideLogo)
+  "tide": (fgBlue, tideLogo),
+  "freebsd": (fgRed, freebsdLogo)
 }.toTable
 
 const defaultLogo = (fgRed, nitchLogo)
