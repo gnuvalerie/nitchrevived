@@ -51,4 +51,3 @@ echo "nitchrevived installation complete."
 #cleanup
 cd ..
 rm -rf nitchrevived
-rm -- "$0"
