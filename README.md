@@ -31,7 +31,7 @@ why `nim👑`? because it's fast and simple
 
 # Installation ☁️
 ```fish
-paru -S nitchrevived
+wget -O - https://git.teto.party/pkgs/nitchrevived/raw/branch/main/install.sh | sh
 ```
 
 # Usage 🪨
