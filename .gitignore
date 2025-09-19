@@ -2,3 +2,4 @@ nitch
 nitchrevived
 pkg/
 *.tar.zst
+venv

@@ -72,10 +72,10 @@ proc drawInfo*(asciiArt: bool) =
     stdout.styledWrite(styleBright, coloredLogo[0], coloredLogo[1], color0)
 
   # colored out
-    stdout.styledWrite("\n", styleBright, "  ╭───────────╮\n")
-    stdout.styledWrite("  │ ", color2, userIcon, color0, userCat, color1, userInfo, color0, "\n",)
-    if not isEmptyOrWhitespace(hostnameInfo):
-      stdout.styledWrite("  │ ", color2, hnameIcon, color0, hnameCat, color2, hostnameInfo, color0, "\n")
+  stdout.styledWrite("\n", styleBright, "  ╭───────────╮\n")
+  stdout.styledWrite("  │ ", color2, userIcon, color0, userCat, color1, userInfo, color0, "\n",)
+  if not isEmptyOrWhitespace(hostnameInfo):
+    stdout.styledWrite("  │ ", color2, hnameIcon, color0, hnameCat, color2, hostnameInfo, color0, "\n")
     stdout.styledWrite("  │ ", color3, distroIcon, color0, distroCat, color3, distroInfo, color0, "\n")
     stdout.styledWrite("  │ ", color4, kernelIcon, color0, kernelCat, color4, kernelInfo, color0, "\n")
     stdout.styledWrite("  │ ", color5, uptimeIcon, color0, uptimeCat, color5, uptimeInfo, color0, "\n")
