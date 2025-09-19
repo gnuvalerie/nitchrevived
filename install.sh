@@ -38,12 +38,12 @@ if command -v pacman >/dev/null 2>&1; then
     else
         nimble build -y
         sudo install -Dm755 nitchrevived /usr/local/bin/nitchrevived
-        sudo install -Dm644 LICENSE /usr/local/share/licenses/nitchrevived/LICENSE
+        sudo install -Dm644 src/LICENSE /usr/local/share/licenses/nitchrevived/LICENSE
     fi
 else
     nimble build -y
     sudo install -Dm755 nitchrevived /usr/local/bin/nitchrevived
-    sudo install -Dm644 LICENSE /usr/local/share/licenses/nitchrevived/LICENSE
+    sudo install -Dm644 src/LICENSE /usr/local/share/licenses/nitchrevived/LICENSE
 fi
 
 echo "nitchrevived installation complete."
