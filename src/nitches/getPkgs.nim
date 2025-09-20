@@ -2,51 +2,32 @@ import
   ../funcs/packages/[getPacmanPkgs, getRpmPkgs,
                      getPortagePkgs, getXbpsPkgs,
                      getDpkgPkgs, getBpmPkgs,
-                     getNixPkgs]
+                     getNixPkgs, getBedrockPkgs]
+import strutils
 
 proc getPkgs*(distroId: string): string =
-  case distroId:
-  of "arch":
+  let normalizedId = distroId.toLowerAscii()
+  case normalizedId:
+  of "arch", "artix", "archcraft", "manjaro", "endeavouros", "garuda":
     result = getPacmanPkgs()
-  
-  of "artix":
-    result = getPacmanPkgs()
-
-  of "archcraft":
-    result = getPacmanPkgs()
-
-  of "manjaro":
-    result = getPacmanPkgs()
-
-  of "endeavouros":
-    result = getPacmanPkgs()
-
-  of "garuda":
-    result = getPacmanPkgs()
-
   of "fedora":
     result = getRpmPkgs()
-
   of "gentoo":
     result = getPortagePkgs()
-
   of "void":
     result = getXbpsPkgs()
-
-  of "ubuntu":
+  of "ubuntu", "debian", "pop":
     result = getDpkgPkgs()
-
-  of "debian":
-    result = getDpkgPkgs()
-
-  of "pop":
-    result = getDpkgPkgs()
-
   of "tide":
     result = getBpmPkgs()
-
   of "nixos":
     result = getNixPkgs()
-
+  of "bedrock":
+    result = getBedrockPkgs()
   else:
-    result = ">3"
+    result = "0"
+
+  try:
+    discard parseInt(result)
+  except ValueError:
+    result = "0"
