@@ -1,7 +1,7 @@
 import
   ../funcs/packages/[getPacmanPkgs, getRpmPkgs,
                      getPortagePkgs, getXbpsPkgs,
-                     getDpkgPkgs]
+                     getDpkgPkgs, getBpmPkgs]
 
 proc getPkgs*(distroId: string): string =
   case distroId:
@@ -40,6 +40,9 @@ proc getPkgs*(distroId: string): string =
 
   of "pop":
     result = getDpkgPkgs()
+
+  of "tide":
+    result = getBpmPkgs()
 
   else:
     result = ">3"
