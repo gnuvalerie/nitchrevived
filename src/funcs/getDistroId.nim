@@ -1,8 +1,8 @@
-import
-  std/parsecfg
+import std/[os, parsecfg]
 
 proc getDistroId*(): string =
-  let
-    osRelease = "/etc/os-release".loadConfig
-
-  result = osRelease.getSectionValue("", "ID")
+  if fileExists("/bedrock/strata/bedrock/etc/os-release"):
+    result = "bedrock"
+  else:
+    let osRelease = "/etc/os-release".loadConfig
+    result = osRelease.getSectionValue("", "ID")

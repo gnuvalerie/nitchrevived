@@ -1,5 +1,7 @@
-import
-  std/parsecfg
+import std/[os, parsecfg]
 
 proc getDistro*(): string =
-  result = "/etc/os-release".loadConfig.getSectionValue("", "PRETTY_NAME")
+  if fileExists("/bedrock/strata/bedrock/etc/os-release"):
+    result = "bedrock"
+  else:
+    result = "/etc/os-release".loadConfig.getSectionValue("", "PRETTY_NAME")
