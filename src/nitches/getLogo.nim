@@ -24,7 +24,7 @@ const logoMap = {
   "bedrock": (fgWhite, bedrockLogo),
   "tide": (fgBlue, tideLogo),
   "freebsd": (fgRed, freebsdLogo),
-  "almalinux": (fgYellow, almaLogo)
+  "almalinux": (fgYellow, almaLogo),
   "nixos": (fgCyan, nixosLogo)
 }.toTable
 
