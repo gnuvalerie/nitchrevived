@@ -1,7 +1,8 @@
 import
   ../funcs/packages/[getPacmanPkgs, getRpmPkgs,
                      getPortagePkgs, getXbpsPkgs,
-                     getDpkgPkgs, getBpmPkgs]
+                     getDpkgPkgs, getBpmPkgs,
+                     getNixPkgs]
 
 proc getPkgs*(distroId: string): string =
   case distroId:
@@ -43,6 +44,9 @@ proc getPkgs*(distroId: string): string =
 
   of "tide":
     result = getBpmPkgs()
+
+  of "nixos":
+    result = getNixPkgs()
 
   else:
     result = ">3"

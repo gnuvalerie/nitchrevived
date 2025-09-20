@@ -1,0 +1,49 @@
+From 64211df65840d958d17e5ce3e4a3b9b98e5b211f Mon Sep 17 00:00:00 2001
+From: EnumDev <enumdev@enumerated.dev>
+Date: Sat, 20 Sep 2025 11:54:03 +0300
+Subject: [PATCH] Add BPM package count support
+
+---
+ src/funcs/packages/getBpmPkgs.nim | 7 +++++++
+ src/nitches/getPkgs.nim           | 5 ++++-
+ 2 files changed, 11 insertions(+), 1 deletion(-)
+ create mode 100644 src/funcs/packages/getBpmPkgs.nim
+
+diff --git a/src/funcs/packages/getBpmPkgs.nim b/src/funcs/packages/getBpmPkgs.nim
+new file mode 100644
+index 0000000..411ec8d
+--- /dev/null
++++ b/src/funcs/packages/getBpmPkgs.nim
+@@ -0,0 +1,7 @@
++import
++  std/[strutils, osproc]
++
++proc getBpmPkgs*(): string =
++  var count = osproc.execCmdEx("bpm list -c")[0]
++  count.stripLineEnd
++  result = count
+diff --git a/src/nitches/getPkgs.nim b/src/nitches/getPkgs.nim
+index ca05971..57f707f 100644
+--- a/src/nitches/getPkgs.nim
++++ b/src/nitches/getPkgs.nim
+@@ -1,7 +1,7 @@
+ import
+   ../funcs/packages/[getPacmanPkgs, getRpmPkgs,
+                      getPortagePkgs, getXbpsPkgs,
+-                     getDpkgPkgs]
++                     getDpkgPkgs, getBpmPkgs]
+ 
+ proc getPkgs*(distroId: string): string =
+   case distroId:
+@@ -41,5 +41,8 @@ proc getPkgs*(distroId: string): string =
+   of "pop":
+     result = getDpkgPkgs()
+ 
++  of "tide":
++    result = getBpmPkgs()
++
+   else:
+     result = ">3"
+-- 
+2.51.0
+
