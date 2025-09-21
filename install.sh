@@ -1,6 +1,5 @@
 #!/bin/sh
 set -e
-
 if [ "$PREFIX" = "/data/data/com.termux/files/usr" ] || [ -d "/data/data/com.termux" ]; then
     echo "Installer doesn't support Termux. Exiting."
     exit 1
@@ -50,6 +49,16 @@ for cmd in git nim nimble; do
     fi
 done
 
+if command -v pacman >/dev/null 2>&1; then
+    if command -v yay >/dev/null 2>&1; then
+        yay -S --needed --noconfirm nitchrevived
+        exit 0
+    elif command -v paru >/dev/null 2>&1; then
+        paru -S --needed --noconfirm nitchrevived
+        exit 0
+    fi
+fi
+
 git clone https://git.teto.party/pkgs/nitchrevived
 cd nitchrevived
 
@@ -72,7 +81,5 @@ else
 fi
 
 echo "nitchrevived installation complete."
-
-#cleanup
 cd ..
 rm -rf nitchrevived
