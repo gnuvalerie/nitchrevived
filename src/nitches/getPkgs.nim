@@ -2,7 +2,9 @@ import
   ../funcs/packages/[getPacmanPkgs, getRpmPkgs,
                      getPortagePkgs, getXbpsPkgs,
                      getDpkgPkgs, getBpmPkgs,
-                     getNixPkgs, getBedrockPkgs]
+                     getNixPkgs, getBedrockPkgs,
+                     getFlatpakPkgs]
+import ../funcs/getFlatpakInstalled
 import strutils
 
 proc getPkgs*(distroId: string): string =
@@ -26,6 +28,9 @@ proc getPkgs*(distroId: string): string =
     result = getBedrockPkgs()
   else:
     result = "0"
+
+  if getFlatpakInstalled():
+    result = $(parseInt(result) + parseInt(getFlatpakPkgs()))
 
   try:
     discard parseInt(result)
