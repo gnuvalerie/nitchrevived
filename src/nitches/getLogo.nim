@@ -20,7 +20,7 @@ const logoMap = {
   "endeavouros": (fgMagenta, endeavourosLogo),
   "artix": (fgBlue, artixLogo),
   "void": (fgGreen, voidLogo),
-  "cachy": (fgGreen, cachyLogo),
+  "cachy", "cachyos": (fgGreen, cachyLogo),
   "bedrock": (fgWhite, bedrockLogo),
   "tide": (fgBlue, tideLogo),
   "freebsd": (fgRed, freebsdLogo),

@@ -8,7 +8,7 @@ import strutils
 proc getPkgs*(distroId: string): string =
   let normalizedId = distroId.toLowerAscii()
   case normalizedId:
-  of "arch", "artix", "archcraft", "manjaro", "endeavouros", "garuda", "steamos", "furreto":
+  of "arch", "artix", "archcraft", "manjaro", "endeavouros", "garuda", "steamos", "furreto", "cachy", "cachyos":
     result = getPacmanPkgs()
   of "fedora":
     result = getRpmPkgs()
