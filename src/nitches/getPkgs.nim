@@ -20,6 +20,8 @@ proc getPkgs*(distroId: string): string =
     result = getXbpsPkgs()
   of "ubuntu", "debian", "pop":
     result = getDpkgPkgs()
+  of "termux":
+    result = getDpkgPkgs()  # Termux uses dpkg like Debian-based distros
   of "tide":
     result = getBpmPkgs()
   of "nixos":
