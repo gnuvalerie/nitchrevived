@@ -27,7 +27,8 @@ const logoMap = {
   "almalinux": (fgYellow, almaLogo),
   "nixos": (fgCyan, nixosLogo),
   "steamos": (fgCyan, steamosLogo),
-  "furreto": (fgMagenta, furretoLogo)
+  "furreto": (fgMagenta, furretoLogo),
+  "termux": (fgGreen, termuxLogo)
 }.toTable
 
 const defaultLogo = (fgRed, nitchLogo)
