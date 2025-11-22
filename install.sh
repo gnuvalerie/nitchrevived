@@ -79,15 +79,10 @@ if [ $IN_TERMUX -eq 1 ]; then
     install -Dm644 LICENSE $PREFIX/share/licenses/nitchrevived/LICENSE
     cd ..
 elif command -v pacman >/dev/null 2>&1; then
-    if [ -f PKGBUILD ]; then
-        makepkg -si --noconfirm
-    else
-        cd src
-        nimble build -y
-        $PRIV_CMD install -Dm755 nitchrevived /usr/local/bin/nitchrevived
-        $PRIV_CMD install -Dm644 LICENSE /usr/local/share/licenses/nitchrevived/LICENSE
-        cd ..
-    fi
+    echo "Please use AUR version."
+    cd ..
+    rm -rf nitchrevived
+    exit
 else
     cd src
     nimble build -y
