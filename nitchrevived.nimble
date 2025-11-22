@@ -1,8 +1,8 @@
 # Package
 
-version       = "0.2.3"
-author        = "sfome & tetoparty"
-description   = "System fetch in nim lang"
+version       = "0.1.7.4"
+author        = "tetoparty"
+description   = "incredibly fast system fetch written in nim."
 license       = "MIT"
 
 srcDir        = "."
