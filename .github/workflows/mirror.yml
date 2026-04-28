@@ -1,0 +1,77 @@
+name: Mirror
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 */6 * * *"
+    
+permissions:
+  contents: write
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout local
+        uses: actions/checkout@v4
+        with:
+          path: local
+          
+      - name: Setup Nim
+        uses: jiro4989/setup-nim-action@v2
+        
+      - name: Init
+        run: |
+          git init --bare mirror.git
+
+      - name: Fetch upstream
+        run: |
+          cd mirror.git
+          git remote add upstream https://git.teto.party/pkgs/nitchrevived
+          git fetch upstream --prune --tags --force
+          git symbolic-ref refs/remotes/upstream/HEAD refs/remotes/upstream/main
+          
+      - name: Merge workflow to main
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git clone mirror.git temp
+          cd temp
+          git fetch origin refs/remotes/upstream/main:refs/heads/main
+          git checkout main
+          cp -r ../local/.github .
+          git add .github
+          git commit -m "Mirror $(date -u +%Y-%m-%d)"
+          git push origin main:main --force
+          cd ..
+          rm -rf temp
+      
+      - name: Build binary branch
+        run: |
+          git clone mirror.git build
+          cd build
+          git fetch origin refs/remotes/upstream/main:refs/heads/main
+          git checkout main
+          cd src
+          nimble build -y || true
+          cd ..
+          git checkout --orphan binary
+          git rm -rf .
+          mkdir -p bin
+          mv src/nitchrevived bin/ 2>/dev/null || true
+          git add bin/nitchrevived
+          git commit -m "$(date -u +%Y-%m-%d)"
+          git push origin binary:binary --force
+          cd ..
+          rm -rf build
+    
+      - name: Push
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd mirror.git
+          git remote add origin https://x-access-token:${GH_TOKEN}@github.com/gnuvalerie/nitchrevived.git
+          git push origin main:main --force
+          git push origin binary:binary --force
+          git push origin 'refs/tags/*:refs/tags/*' --force
